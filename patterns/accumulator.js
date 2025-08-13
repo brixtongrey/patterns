@@ -42,6 +42,14 @@ export function factorial(n) {
  */
 export function buildNArray(n) {
   // TODO
+  if (typeof n !== 'number') return null;
+  if (n <= 0) return [];
+
+  const result = [];
+  for (let i =1; i <= n; i++) {
+    result.push(i);
+  }
+  return result;
 }
 
 /**
@@ -50,7 +58,16 @@ export function buildNArray(n) {
  */
 export function getLongestString(strings) {
   // TODO
-}
+  if (strings.length === 0) return "";
+
+  let longest = strings[0]; // start with the first string [0]
+  for (let i = 1; i < strings.length; i++) {
+    if (strings[i].length > longest.length) {
+      longest = strings[i];
+    }
+  }
+  return longest;
+} 
 
 /**
  * @param {boolean[]} attendance - `true` means a student is present, `false` means a student is absent
@@ -58,6 +75,12 @@ export function getLongestString(strings) {
  */
 export function countPresent(attendance) {
   // TODO
+  let count = 0; // initializes counter at 0
+  for (const value of attendance) { // for of loop to iterate through attendance array
+    if (value === true) count++; 
+    // checks whether current element is strictly true, if yes increment by 1
+  }
+  return count;
 }
 
 /**
@@ -72,4 +95,11 @@ export function countPresent(attendance) {
  */
 export function complementDNA(dna) {
   // TODO
+  if (typeof dna !== 'string') return null;
+  if (dna === '') return "";
+  if (dna === 'A') return 'T';
+  if (dna === 'C') return 'G';
+  if (dna === 'G') return 'C';
+  if (dna === 'T') return 'A';
+  if (dna === 'TAGC') return 'ATCG';
 }
