@@ -20,6 +20,14 @@ export function isSongInPlaylist(playlist, song) {
  */
 export function isAllEven(numbers) {
   // TODO
+  if (numbers.length === 0) return undefined;
+
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 !== 0) { // if remainder when divided by 2 is not 0 -> odd number
+      return false;
+    }
+  }
+  return true; // gets true when no odd numbers were found
 }
 
 /**
@@ -33,4 +41,12 @@ export function isAllEven(numbers) {
  */
 export function haveEnoughFood(backpack, people) {
   // TODO
+  let countOfFood = 0;
+
+  for (let i = 0; i < backpack.length; i++) {
+    if (backpack[i].category === 'food') {
+      countOfFood++
+    }
+  }
+  return countOfFood >= people;
 }
